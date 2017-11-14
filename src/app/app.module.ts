@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { PegComponent } from './peg/peg.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PegComponent
   ],
   imports: [
     BrowserModule
