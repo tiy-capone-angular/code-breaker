@@ -29,6 +29,11 @@ export class PegComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.clickService
+      .pegClicked
+      .subscribe(
+        value => this.showOptions = false
+      );
   }
 
   get chosenClass(): ChosenClass {
@@ -36,6 +41,7 @@ export class PegComponent implements OnInit {
   }
 
   handleClick() {
+    this.clickService.clickHappened(this);
     this.showOptions = !this.showOptions;
   }
 
