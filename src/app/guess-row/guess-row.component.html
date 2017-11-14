@@ -1,6 +1,14 @@
 <div class="row">
-  <app-peg [(color)]="first"></app-peg>
-  <app-peg [(color)]="second"></app-peg>
-  <app-peg [(color)]="third"></app-peg>
-  <app-peg [(color)]="fourth"></app-peg>
+  <app-peg [disabled]="guessMade" [(color)]="guess.first"></app-peg>
+  <app-peg [disabled]="guessMade" [(color)]="guess.second"></app-peg>
+  <app-peg [disabled]="guessMade" [(color)]="guess.third"></app-peg>
+  <app-peg [disabled]="guessMade" [(color)]="guess.fourth"></app-peg>
+  <button *ngIf="!guessMade"
+          (click)="makeGuess()"
+          [disabled]="!guess.isValid()">Guess</button>
+  <div *ngIf="guessMade">
+    <ul>
+      <li *ngFor="let r of guess.result">{{ r }}</li>
+    </ul>
+  </div>
 </div>

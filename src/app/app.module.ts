@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { PegComponent } from './peg/peg.component';
 import { PegClickService } from './peg-click/peg-click.service';
 import { GuessRowComponent } from './guess-row/guess-row.component';
+import { BoardComponent } from './board/board.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PegComponent,
-    GuessRowComponent
+    GuessRowComponent,
+    BoardComponent
   ],
   imports: [
     BrowserModule

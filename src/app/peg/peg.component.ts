@@ -15,6 +15,9 @@ interface ChosenClass {
 export class PegComponent implements OnInit {
 
   @Input()
+  disabled: boolean;
+
+  @Input()
   color: string;
 
   @Output()
@@ -41,6 +44,7 @@ export class PegComponent implements OnInit {
   }
 
   handleClick() {
+    if (this.disabled) return;
     this.clickService.clickHappened(this);
     this.showOptions = !this.showOptions;
   }

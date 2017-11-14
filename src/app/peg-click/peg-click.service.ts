@@ -12,7 +12,7 @@ export class PegClickService {
     this.pegClicked = new Subject<PegComponent>();
   }
 
-  clickHappened(peg: PegComponent): any {
+  clickHappened(peg?: PegComponent): any {
     // Broadcast the click to all subscribers
     this.pegClicked.next(peg);
   }

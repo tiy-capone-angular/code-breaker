@@ -1,0 +1,6 @@
+<h1>{{ gameOver }}</h1>
+<app-guess-row *ngFor="let guess of guesses"
+               [guess]="guess"
+               (heyGuessMade)="checkGuess()">
+</app-guess-row>
+{{ answer | json }}
