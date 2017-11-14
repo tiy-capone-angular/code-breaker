@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
+import { PegClickService } from '../peg-click/peg-click.service';
 
 interface ChosenClass {
   red?: boolean;
@@ -21,7 +22,9 @@ export class PegComponent implements OnInit {
 
   showOptions: boolean;
 
-  constructor() {
+  constructor(
+    private clickService: PegClickService
+  ) {
     this.colorChange = new EventEmitter<string>();
   }
 
