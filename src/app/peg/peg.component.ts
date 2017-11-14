@@ -7,13 +7,15 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class PegComponent implements OnInit {
 
+  showOptions: boolean;
+
   constructor() { }
 
   ngOnInit() {
   }
 
   handleClick() {
-
+    this.showOptions = !this.showOptions;
   }
 
 }
