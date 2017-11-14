@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
 
 interface ChosenClass {
   red?: boolean;
@@ -13,12 +13,23 @@ interface ChosenClass {
 })
 export class PegComponent implements OnInit {
 
-  showOptions: boolean;
-  chosenClass: ChosenClass;
+  @Input()
+  color: string;
 
-  constructor() { }
+  @Output()
+  colorChange: EventEmitter<string>;
+
+  showOptions: boolean;
+
+  constructor() {
+    this.colorChange = new EventEmitter<string>();
+  }
 
   ngOnInit() {
+  }
+
+  get chosenClass(): ChosenClass {
+    return { [this.color]: true };
   }
 
   handleClick() {
@@ -26,18 +37,21 @@ export class PegComponent implements OnInit {
   }
 
   handleRed() {
-    this.chosenClass = { red: true };
+    this.color = 'red';
     this.showOptions = false;
+    this.colorChange.emit(this.color);
   }
 
   handleGoldenrod() {
-    this.chosenClass = { goldenrod: true };
+    this.color = 'goldenrod';
     this.showOptions = false;
+    this.colorChange.emit(this.color);
   }
 
   handleCyan() {
-    this.chosenClass = { cyan: true };
+    this.color = 'cyan';
     this.showOptions = false;
+    this.colorChange.emit(this.color);
   }
 
 }
