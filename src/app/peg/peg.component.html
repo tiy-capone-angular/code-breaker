@@ -1,7 +1,11 @@
-<div class="peg"
-     (click)="handleClick()"></div>
-<div class="peg-choices" [class.show-options]="showOptions">
-  <div class="peg-choice red"></div>
-  <div class="peg-choice goldenrod"></div>
-  <div class="peg-choice cyan"></div>
+<div class="peg-holder">
+  <div class="peg"
+      [ngClass]="chosenClass"
+       (click)="handleClick()"></div>
+  <div class="peg-choices"
+       [class.show-options]="showOptions">
+    <div (click)="handleRed()" class="peg-choice red"></div>
+    <div (click)="handleGoldenrod()" class="peg-choice goldenrod"></div>
+    <div (click)="handleCyan()" class="peg-choice cyan"></div>
+  </div>
 </div>
